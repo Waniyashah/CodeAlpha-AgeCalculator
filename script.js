@@ -29,9 +29,10 @@ function calculateAge() {
             years--;
             months += 12;
         }
-        var result = "Aap ki umar hai: <strong>".concat(years, "</strong> saal, <strong>").concat(months, "</strong> mahine, aur <strong>").concat(days, "</strong> din.");
+        // Create better formatted result
+        var resultHTML = "\n            <div class=\"result-text\">Your Age Is:</div>\n            <div class=\"age-display\">\n                <div class=\"age-item\">\n                    <div class=\"age-number\">".concat(years, "</div>\n                    <div class=\"age-label\">Years</div>\n                </div>\n                <div class=\"age-item\">\n                    <div class=\"age-number\">").concat(months, "</div>\n                    <div class=\"age-label\">Months</div>\n                </div>\n                <div class=\"age-item\">\n                    <div class=\"age-number\">").concat(days, "</div>\n                    <div class=\"age-label\">Days</div>\n                </div>\n            </div>\n        ");
         resultElement.classList.remove("loading");
-        resultElement.innerHTML = result;
+        resultElement.innerHTML = resultHTML;
         // Add celebration animation
         createCelebration();
     }, 800);
@@ -92,27 +93,3 @@ document.addEventListener('DOMContentLoaded', function () {
         (_a = input.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove('focused');
     });
 });
-// Alternative function with interface (optional enhancement)
-function calculateAgeWithInterface(dobString) {
-    if (!dobString) {
-        return null;
-    }
-    var dob = new Date(dobString);
-    var today = new Date();
-    if (dob > today) {
-        return null;
-    }
-    var years = today.getFullYear() - dob.getFullYear();
-    var months = today.getMonth() - dob.getMonth();
-    var days = today.getDate() - dob.getDate();
-    if (days < 0) {
-        months--;
-        var previousMonthDays = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-        days += previousMonthDays;
-    }
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
-    return { years: years, months: months, days: days };
-}
