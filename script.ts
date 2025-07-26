@@ -39,19 +39,19 @@ function calculateAge(): void {
         
         // Create better formatted result
         const resultHTML: string = `
-            <div class="result-text">Aap ki umar hai:</div>
+            <div class="result-text">Your Age Is:</div>
             <div class="age-display">
                 <div class="age-item">
                     <div class="age-number">${years}</div>
-                    <div class="age-label">Saal</div>
+                    <div class="age-label">Years</div>
                 </div>
                 <div class="age-item">
                     <div class="age-number">${months}</div>
-                    <div class="age-label">Mahine</div>
+                    <div class="age-label">Months</div>
                 </div>
                 <div class="age-item">
                     <div class="age-number">${days}</div>
-                    <div class="age-label">Din</div>
+                    <div class="age-label">Days</div>
                 </div>
             </div>
         `;
